@@ -1,16 +1,7 @@
-.profil-image {
+.logo__image, .profil-image {
     width: 150px;
-    /* atur ukuran sesuai keinginan */
     height: 150px;
-    /* pastikan ukuran sama agar bulat */
     border-radius: 50%;
-    /* bikin bulat */
     object-fit: cover;
-    /* agar gambar tidak gepeng */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    /* bayangan */
-    margin: 20px auto;
-    /* tengah secara horizontal */
-    display: block;
-    /* biar bisa center */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
