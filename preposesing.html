@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Data Understanding &#8212; My sample book</title>
+    <title>Preprocessing &#8212; My sample book</title>
   
   
   
@@ -58,11 +58,10 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Data_Understanding_iris';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'preposesing';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Preprocessing" href="preposesing.html" />
-    <link rel="prev" title="Business Understanding" href="Business_Understanding_iris.html" />
+    <link rel="prev" title="Data Understanding" href="Data_Understanding_iris.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -182,8 +181,8 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="Business_Understanding_iris.html">Business Understanding</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Understanding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="preposesing.html">Preprocessing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Data_Understanding_iris.html">Data Understanding</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Preprocessing</a></li>
 </ul>
 
     </div>
@@ -255,7 +254,7 @@
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FData_Understanding_iris.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fpreposesing.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -285,7 +284,7 @@
       
       
       
-      <li><a href="_sources/Data_Understanding_iris.ipynb" target="_blank"
+      <li><a href="_sources/preposesing.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -369,7 +368,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Data Understanding</h1>
+    <h1>Preprocessing</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -379,18 +378,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-data">Struktur Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melihat-10-baris-pertama-data">Melihat 10 baris pertama data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-outlier">Identifikasi Outlier</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lof">LOF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abod">ABOD</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-statistik">Ringkasan Statistik</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-diagram-distribusi-spesies-iris">Deskripsi Diagram Distribusi Spesies Iris</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier">Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lof">LOF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abod">ABOD</a></li>
 </ul>
             </nav>
         </div>
@@ -402,271 +393,44 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-understanding">
-<h1>Data Understanding<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h1>
-<p>Dataset yang digunakan adalah <strong>Iris Dataset</strong> yang berisi informasi mengenai karakteristik bunga iris.<br />
-Dataset ini memiliki <strong>5 fitur utama</strong> selain Id, yaitu panjang dan lebar sepal, panjang dan lebar petal, serta jenis spesies bunga.</p>
-<section id="struktur-data">
-<h2>Struktur Data<a class="headerlink" href="#struktur-data" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Kolom</p></th>
-<th class="head"><p>Tipe Data</p></th>
-<th class="head"><p>Deskripsi</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>Id</p></td>
-<td><p>Numerik</p></td>
-<td><p>Nomor urut atau identitas unik untuk setiap data bunga.</p></td>
-</tr>
-<tr class="row-odd"><td><p>SepalLengthCm</p></td>
-<td><p>Numerik</p></td>
-<td><p>Panjang sepal (kelopak bunga) dalam satuan sentimeter.</p></td>
-</tr>
-<tr class="row-even"><td><p>SepalWidthCm</p></td>
-<td><p>Numerik</p></td>
-<td><p>Lebar sepal (kelopak bunga) dalam satuan sentimeter.</p></td>
-</tr>
-<tr class="row-odd"><td><p>PetalLengthCm</p></td>
-<td><p>Numerik</p></td>
-<td><p>Panjang petal (mahkota bunga) dalam satuan sentimeter.</p></td>
-</tr>
-<tr class="row-even"><td><p>PetalWidthCm</p></td>
-<td><p>Numerik</p></td>
-<td><p>Lebar petal (mahkota bunga) dalam satuan sentimeter.</p></td>
-</tr>
-<tr class="row-odd"><td><p>Species</p></td>
-<td><p>Kategorikal</p></td>
-<td><p>Jenis bunga iris (Iris-setosa, Iris-versicolor, Iris-virginica).</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<hr class="docutils" />
-<section id="melihat-10-baris-pertama-data">
-<h2>Melihat 10 baris pertama data<a class="headerlink" href="#melihat-10-baris-pertama-data" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;Iris.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span><span class="p">)</span>
-
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Id</th>
-      <th>SepalLengthCm</th>
-      <th>SepalWidthCm</th>
-      <th>PetalLengthCm</th>
-      <th>PetalWidthCm</th>
-      <th>Species</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>1</td>
-      <td>5.1</td>
-      <td>3.5</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>4.9</td>
-      <td>3.0</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>4.7</td>
-      <td>3.2</td>
-      <td>1.3</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>4.6</td>
-      <td>3.1</td>
-      <td>1.5</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>5</td>
-      <td>5.0</td>
-      <td>3.6</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>6</td>
-      <td>5.4</td>
-      <td>3.9</td>
-      <td>1.7</td>
-      <td>0.4</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>7</td>
-      <td>4.6</td>
-      <td>3.4</td>
-      <td>1.4</td>
-      <td>0.3</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>8</td>
-      <td>5.0</td>
-      <td>3.4</td>
-      <td>1.5</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>9</td>
-      <td>4.4</td>
-      <td>2.9</td>
-      <td>1.4</td>
-      <td>0.2</td>
-      <td>Iris-setosa</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>10</td>
-      <td>4.9</td>
-      <td>3.1</td>
-      <td>1.5</td>
-      <td>0.1</td>
-      <td>Iris-setosa</td>
-    </tr>
-  </tbody>
-</table>
-</div></div></div>
-</div>
-</section>
-<section id="identifikasi-outlier">
-<h2>Identifikasi Outlier<a class="headerlink" href="#identifikasi-outlier" title="Link to this heading">#</a></h2>
-<p>Outlier adalah data yang memiliki nilai jauh berbeda dibandingkan sebagian besar data lain.
-Contoh: Pada dataset Iris, mayoritas SepalLength sekitar 5 cm, namun ada data yang bernilai 9 cm → ini disebut outlier.</p>
-<section id="import-library">
-<h3>Import Library<a class="headerlink" href="#import-library" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pymysql
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>psycopg2-binary
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>sqlalchemy
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>python-dotenv
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pymysql in /workspaces/PSD/.conda/lib/python3.11/site-packages (1.1.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pandas in /workspaces/PSD/.conda/lib/python3.11/site-packages (2.1.4)
-Requirement already satisfied: numpy&lt;2,&gt;=1.23.2 in /workspaces/PSD/.conda/lib/python3.11/site-packages (from pandas) (1.26.4)
-Requirement already satisfied: python-dateutil&gt;=2.8.2 in /workspaces/PSD/.conda/lib/python3.11/site-packages (from pandas) (2.9.0.post0)
-Requirement already satisfied: pytz&gt;=2020.1 in /workspaces/PSD/.conda/lib/python3.11/site-packages (from pandas) (2025.2)
-Requirement already satisfied: tzdata&gt;=2022.1 in /workspaces/PSD/.conda/lib/python3.11/site-packages (from pandas) (2025.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six&gt;=1.5 in /workspaces/PSD/.conda/lib/python3.11/site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas) (1.17.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: psycopg2-binary in /workspaces/PSD/.conda/lib/python3.11/site-packages (2.9.10)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sqlalchemy in /workspaces/PSD/.conda/lib/python3.11/site-packages (2.0.43)
-Requirement already satisfied: greenlet&gt;=1 in /workspaces/PSD/.conda/lib/python3.11/site-packages (from sqlalchemy) (3.2.4)
-Requirement already satisfied: typing-extensions&gt;=4.6.0 in /workspaces/PSD/.conda/lib/python3.11/site-packages (from sqlalchemy) (4.15.0)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: python-dotenv in /workspaces/PSD/.conda/lib/python3.11/site-packages (1.1.1)
-</pre></div>
-</div>
-</div>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="preprocessing">
+<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Link to this heading">#</a></h1>
+<p>Tujuan utama dari tahap ini adalah untuk membersihkan data dari anomali atau outlier yang dapat mengganggu performa model machine learning. Outlier adalah titik data yang secara signifikan berbeda dari observasi lainnya.</p>
+<section id="outlier">
+<h2>Outlier<a class="headerlink" href="#outlier" title="Link to this heading">#</a></h2>
+<p>Dalam tahap data preprocessing, outlier harus diperhatikan karena:</p>
+<ul class="simple">
+<li><p>Outlier dapat menyebabkan distorsi statistik (mean, standar deviasi).</p></li>
+<li><p>Bisa mempengaruhi akurasi model karena model salah menangkap pola.</p></li>
+<li><p>Dalam konteks anomaly detection, outlier biasanya ditandai dengan Anomaly = 1.</p></li>
+</ul>
+<p>Ada beberapa cara menangani outlier:</p>
+<ol class="arabic simple">
+<li><p>Menghapus outlier → sering dipilih jika jumlahnya sedikit dan tidak merepresentasikan distribusi data.</p></li>
+<li><p>Transformasi data (log, z-score scaling, winsorizing) → kalau outlier tetap dianggap penting.</p></li>
+<li><p>Menyimpan outlier sebagai informasi → jika outlier punya arti khusus (contohnya kasus fraud detection).</p></li>
+</ol>
 </section>
 <section id="lof">
-<h3>LOF<a class="headerlink" href="#lof" title="Link to this heading">#</a></h3>
-<p>Apa itu LOF?
-<strong>LOF</strong> adalah metode deteksi outlier berbasis <strong>kepadatan (density)</strong>.<br />
-Data dianggap outlier jika berada di area yang <strong>lebih jarang</strong> dibanding tetangganya.</p>
-<hr class="docutils" />
-<p>Cara Kerja</p>
-<ol class="arabic simple">
-<li><p>Cari <strong>tetangga terdekat (kNN)</strong> untuk tiap data.</p></li>
-<li><p>Hitung <strong>kepadatan lokal</strong> (seberapa rapat data di sekitar titik).</p></li>
-<li><p>Bandingkan kepadatan titik dengan tetangganya.</p>
-<ul class="simple">
-<li><p>Jika lebih rendah → <strong>outlier</strong>.</p></li>
-<li><p>Jika mirip → <strong>normal</strong>.</p></li>
-</ul>
-</li>
-</ol>
-<hr class="docutils" />
-<p>Interpretasi</p>
-<ul class="simple">
-<li><p><strong>LOF ≈ 1</strong> → normal (inlier).</p></li>
-<li><p><strong>LOF &gt; 1</strong> → kemungkinan outlier.</p></li>
-<li><p><strong>Semakin besar LOF</strong>, semakin aneh datanya.</p></li>
-</ul>
-<hr class="docutils" />
-<p>Kelebihan &amp; Kekurangan
-Bisa deteksi <strong>outlier lokal</strong>.<br />
-Butuh parameter <strong>k</strong> yang tepat dan agak lambat di dataset besar.</p>
-<hr class="docutils" />
+<h2>LOF<a class="headerlink" href="#lof" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="c1"># Ganti nama file sesuai dengan yang Anda upload</span>
+<span class="c1"># Baca dataset hasil deteksi LOF</span>
 <span class="n">df_lof</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;LOF.csv&quot;</span><span class="p">)</span>
 
-<span class="c1"># Tampilkan 5 baris pertama</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_lof</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<span class="c1"># Hapus outlier (Anomaly = 1)</span>
+<span class="n">df_lof_clean</span> <span class="o">=</span> <span class="n">df_lof</span><span class="p">[</span><span class="n">df_lof</span><span class="p">[</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataset LOF setelah outlier dihapus:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_lof_clean</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               class  petal_length  petal_width  sepal_length  sepal_width  Anomaly  Anomaly_Score
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset LOF setelah outlier dihapus:
+               class  petal_length  petal_width  sepal_length  sepal_width  Anomaly  Anomaly_Score
 0        Iris-setosa           1.0          0.2           4.6          3.6        0       1.294602
 1        Iris-setosa           1.1          0.1           4.3          3.0        0       1.326518
 2        Iris-setosa           1.2          0.2           5.0          3.2        0       0.972286
@@ -675,7 +439,6 @@ Butuh parameter <strong>k</strong> yang tepat dan agak lambat di dataset besar.<
 5        Iris-setosa           1.3          0.2           4.4          3.2        0       1.123400
 6        Iris-setosa           1.3          0.2           4.7          3.2        0       1.019841
 7        Iris-setosa           1.3          0.2           5.5          3.5        0       1.073003
-8        Iris-setosa           1.3          0.3           4.5          2.3        1       1.777233
 9        Iris-setosa           1.3          0.3           5.0          3.5        0       0.961750
 10       Iris-setosa           1.3          0.4           5.4          3.9        0       1.142666
 11       Iris-setosa           1.4          0.1           4.8          3.0        0       1.023249
@@ -701,7 +464,6 @@ Butuh parameter <strong>k</strong> yang tepat dan agak lambat di dataset besar.<
 31       Iris-setosa           1.5          0.3           5.1          3.8        0       1.004170
 32       Iris-setosa           1.5          0.4           5.1          3.7        0       0.997860
 33       Iris-setosa           1.5          0.4           5.4          3.4        0       0.997495
-34       Iris-setosa           1.5          0.4           5.7          4.4        1       1.653626
 35       Iris-setosa           1.6          0.2           4.7          3.2        0       1.002472
 36       Iris-setosa           1.6          0.2           4.8          3.1        0       0.980617
 37       Iris-setosa           1.6          0.2           4.8          3.4        0       0.959970
@@ -715,7 +477,6 @@ Butuh parameter <strong>k</strong> yang tepat dan agak lambat di dataset besar.<
 45       Iris-setosa           1.7          0.5           5.1          3.3        0       1.003213
 46       Iris-setosa           1.9          0.2           4.8          3.4        0       1.070735
 47       Iris-setosa           1.9          0.4           5.1          3.8        0       1.121139
-48   Iris-versicolor           3.0          1.1           5.1          2.5        1       1.508151
 49   Iris-versicolor           3.3          1.0           4.9          2.4        0       1.429921
 50   Iris-versicolor           3.3          1.0           5.0          2.3        0       1.398471
 51   Iris-versicolor           3.5          1.0           5.0          2.0        0       1.419245
@@ -765,7 +526,6 @@ Butuh parameter <strong>k</strong> yang tepat dan agak lambat di dataset besar.<
 95   Iris-versicolor           4.9          1.5           6.9          3.1        0       1.141509
 96   Iris-versicolor           5.0          1.7           6.7          3.0        0       1.104480
 97   Iris-versicolor           5.1          1.6           6.0          2.7        0       1.069704
-98    Iris-virginica           4.5          1.7           4.9          2.5        1       1.721213
 99    Iris-virginica           4.8          1.8           6.0          3.0        0       1.052340
 100   Iris-virginica           4.8          1.8           6.2          2.8        0       1.038901
 101   Iris-virginica           4.9          1.8           6.1          3.0        0       1.009995
@@ -809,56 +569,32 @@ Butuh parameter <strong>k</strong> yang tepat dan agak lambat di dataset besar.<
 139   Iris-virginica           6.1          2.3           7.7          3.0        0       1.295242
 140   Iris-virginica           6.1          2.5           7.2          3.6        0       1.210310
 141   Iris-virginica           6.3          1.8           7.3          2.9        0       1.254868
-142   Iris-virginica           6.4          2.0           7.9          3.8        1       1.535902
 143   Iris-virginica           6.6          2.1           7.6          3.0        0       1.389117
-144   Iris-virginica           6.7          2.0           7.7          2.8        1       1.479701
-145   Iris-virginica           6.7          2.2           7.7          3.8        1       1.561421
-146   Iris-virginica           6.9          2.3           7.7          2.6        1       1.611981
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="knn">
-<h3>KNN<a class="headerlink" href="#knn" title="Link to this heading">#</a></h3>
-<p>K-Nearest Neighbors (KNN) untuk Deteksi Outlier</p>
-<p>Apa itu KNN?
-Metode <strong>K-Nearest Neighbors (KNN)</strong> digunakan untuk mendeteksi outlier dengan melihat <strong>jarak</strong> suatu data ke tetangga terdekatnya.<br />
-Data dianggap outlier jika letaknya <strong>jauh dari tetangga-tetangganya</strong>.</p>
-<hr class="docutils" />
-<p>Cara Kerja</p>
-<ol class="arabic simple">
-<li><p>Tentukan jumlah tetangga (<strong>k</strong>).</p></li>
-<li><p>Hitung jarak tiap data ke <strong>k tetangga terdekat</strong>.</p></li>
-<li><p>Jika rata-rata jarak data ke tetangga terlalu besar → data tersebut adalah <strong>outlier</strong>.</p></li>
-</ol>
-<hr class="docutils" />
-<p>Interpretasi</p>
-<ul class="simple">
-<li><p><strong>Jarak kecil</strong> → data normal (inlier).</p></li>
-<li><p><strong>Jarak besar</strong> → data outlier.</p></li>
-</ul>
-<hr class="docutils" />
-<p>Kelebihan &amp; Kekurangan
-Mudah dipahami dan diimplementasikan.<br />
-Cocok untuk data dengan distribusi sederhana.<br />
-Sensitif terhadap pemilihan parameter <strong>k</strong>.<br />
-Kurang efisien jika dataset sangat besar.</p>
-<hr class="docutils" />
+<h2>KNN<a class="headerlink" href="#knn" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="c1"># Ganti nama file sesuai dengan yang Anda upload</span>
+<span class="c1"># Baca dataset hasil deteksi KNN</span>
 <span class="n">df_knn</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;KNN.csv&quot;</span><span class="p">)</span>
 
-<span class="c1"># Tampilkan 5 baris pertama</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_knn</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<span class="c1"># Hapus outlier (Anomaly = 1)</span>
+<span class="n">df_knn_clean</span> <span class="o">=</span> <span class="n">df_knn</span><span class="p">[</span><span class="n">df_knn</span><span class="p">[</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataset KNN setelah outlier dihapus:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_knn_clean</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               class  petal_length  petal_width  sepal_length  sepal_width  Anomaly  Anomaly_Score
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset KNN setelah outlier dihapus:
+               class  petal_length  petal_width  sepal_length  sepal_width  Anomaly  Anomaly_Score
 0        Iris-setosa           1.0          0.2           4.6          3.6        0       0.565685
 1        Iris-setosa           1.1          0.1           4.3          3.0        0       0.500000
 2        Iris-setosa           1.2          0.2           5.0          3.2        0       0.346410
@@ -867,7 +603,6 @@ Kurang efisien jika dataset sangat besar.</p>
 5        Iris-setosa           1.3          0.2           4.4          3.2        0       0.316228
 6        Iris-setosa           1.3          0.2           4.7          3.2        0       0.264575
 7        Iris-setosa           1.3          0.2           5.5          3.5        0       0.360555
-8        Iris-setosa           1.3          0.3           4.5          2.3        1       0.793726
 9        Iris-setosa           1.3          0.3           5.0          3.5        0       0.244949
 10       Iris-setosa           1.3          0.4           5.4          3.9        0       0.400000
 11       Iris-setosa           1.4          0.1           4.8          3.0        0       0.200000
@@ -907,8 +642,6 @@ Kurang efisien jika dataset sangat besar.</p>
 45       Iris-setosa           1.7          0.5           5.1          3.3        0       0.387299
 46       Iris-setosa           1.9          0.2           4.8          3.4        0       0.447213
 47       Iris-setosa           1.9          0.4           5.1          3.8        0       0.479583
-48   Iris-versicolor           3.0          1.1           5.1          2.5        1       0.818535
-49   Iris-versicolor           3.3          1.0           4.9          2.4        1       0.787401
 50   Iris-versicolor           3.3          1.0           5.0          2.3        0       0.721110
 51   Iris-versicolor           3.5          1.0           5.0          2.0        0       0.721110
 52   Iris-versicolor           3.5          1.0           5.7          2.6        0       0.469042
@@ -957,7 +690,6 @@ Kurang efisien jika dataset sangat besar.</p>
 95   Iris-versicolor           4.9          1.5           6.9          3.1        0       0.509902
 96   Iris-versicolor           5.0          1.7           6.7          3.0        0       0.556777
 97   Iris-versicolor           5.1          1.6           6.0          2.7        0       0.624500
-98    Iris-virginica           4.5          1.7           4.9          2.5        1       1.249000
 99    Iris-virginica           4.8          1.8           6.0          3.0        0       0.479583
 100   Iris-virginica           4.8          1.8           6.2          2.8        0       0.435890
 101   Iris-virginica           4.9          1.8           6.1          3.0        0       0.458258
@@ -999,60 +731,34 @@ Kurang efisien jika dataset sangat besar.</p>
 137   Iris-virginica           6.0          2.5           6.3          3.3        0       0.608276
 138   Iris-virginica           6.1          1.9           7.4          2.8        0       0.538516
 139   Iris-virginica           6.1          2.3           7.7          3.0        0       0.700000
-140   Iris-virginica           6.1          2.5           7.2          3.6        1       0.806226
 141   Iris-virginica           6.3          1.8           7.3          2.9        0       0.556776
-142   Iris-virginica           6.4          2.0           7.9          3.8        1       1.024695
 143   Iris-virginica           6.6          2.1           7.6          3.0        0       0.608276
 144   Iris-virginica           6.7          2.0           7.7          2.8        0       0.700000
-145   Iris-virginica           6.7          2.2           7.7          3.8        1       1.019804
-146   Iris-virginica           6.9          2.3           7.7          2.6        1       0.964365
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="abod">
-<h3>ABOD<a class="headerlink" href="#abod" title="Link to this heading">#</a></h3>
-<p>Angle-Based Outlier Detection (ABOD)</p>
-<p>Apa itu ABOD?
-<strong>ABOD</strong> adalah metode deteksi outlier berbasis <strong>sudut (angle)</strong> antar titik data.<br />
-Ide dasarnya: data normal punya <strong>sudut yang mirip</strong> dengan banyak tetangganya, sedangkan outlier punya <strong>sudut berbeda jauh</strong>.</p>
-<hr class="docutils" />
-<p>Cara Kerja</p>
-<ol class="arabic simple">
-<li><p>Hitung <strong>sudut</strong> antara vektor yang terbentuk dari suatu titik ke titik-titik lainnya.</p></li>
-<li><p>Bandingkan variasi sudut:</p>
-<ul class="simple">
-<li><p>Variasi sudut kecil → data <strong>normal (inlier)</strong>.</p></li>
-<li><p>Variasi sudut besar → data <strong>outlier</strong>.</p></li>
-</ul>
-</li>
-</ol>
-<hr class="docutils" />
-<p>Interpretasi</p>
-<ul class="simple">
-<li><p><strong>Nilai ABOD tinggi</strong> → normal.</p></li>
-<li><p><strong>Nilai ABOD rendah</strong> → kemungkinan outlier.</p></li>
-</ul>
-<hr class="docutils" />
-<p>Kelebihan &amp; Kekurangan
-Bagus untuk data berdimensi tinggi.<br />
-Tidak hanya mengandalkan jarak, tapi juga pola sudut.<br />
-Lebih lambat dihitung pada dataset besar.</p>
+<h2>ABOD<a class="headerlink" href="#abod" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
 
-<span class="c1"># Ganti nama file sesuai dengan yang Anda upload</span>
+<span class="c1"># Baca dataset hasil deteksi ABOD</span>
 <span class="n">df_abod</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;ABOD.csv&quot;</span><span class="p">)</span>
 
-<span class="c1"># Tampilkan 5 baris pertama</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df_abod</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
+<span class="c1"># Hapus outlier (Anomaly = 1)</span>
+<span class="n">df_abod_clean</span> <span class="o">=</span> <span class="n">df_abod</span><span class="p">[</span><span class="n">df_abod</span><span class="p">[</span><span class="s1">&#39;Anomaly&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dataset ABOD setelah outlier dihapus:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_abod_clean</span><span class="o">.</span><span class="n">to_string</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>               class  petal_length  petal_width  sepal_length  sepal_width  Anomaly  Anomaly_Score
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dataset ABOD setelah outlier dihapus:
+               class  petal_length  petal_width  sepal_length  sepal_width  Anomaly  Anomaly_Score
 0        Iris-setosa           1.0          0.2           4.6          3.6        0      -0.771745
 1        Iris-setosa           1.1          0.1           4.3          3.0        0      -6.211703
 2        Iris-setosa           1.2          0.2           5.0          3.2        0     -22.260507
@@ -1061,7 +767,6 @@ Lebih lambat dihitung pada dataset besar.</p>
 5        Iris-setosa           1.3          0.2           4.4          3.2        0     -44.802539
 6        Iris-setosa           1.3          0.2           4.7          3.2        0     -93.422000
 7        Iris-setosa           1.3          0.2           5.5          3.5        0      -3.638189
-8        Iris-setosa           1.3          0.3           4.5          2.3        1      -0.088998
 9        Iris-setosa           1.3          0.3           5.0          3.5        0     -69.753133
 10       Iris-setosa           1.3          0.4           5.4          3.9        0      -7.147108
 11       Iris-setosa           1.4          0.1           4.8          3.0        0    -172.917052
@@ -1112,7 +817,6 @@ Lebih lambat dihitung pada dataset besar.</p>
 56   Iris-versicolor           3.9          1.1           5.6          2.5        0    -125.610741
 57   Iris-versicolor           3.9          1.2           5.8          2.7        0     -34.407603
 58   Iris-versicolor           3.9          1.4           5.2          2.7        0      -0.885601
-59   Iris-versicolor           4.0          1.0           6.0          2.2        1      -0.289391
 60   Iris-versicolor           4.0          1.2           5.8          2.6        0     -18.646376
 61   Iris-versicolor           4.0          1.3           5.5          2.3        0      -7.025612
 62   Iris-versicolor           4.0          1.3           5.5          2.5        0     -43.775604
@@ -1151,13 +855,11 @@ Lebih lambat dihitung pada dataset besar.</p>
 95   Iris-versicolor           4.9          1.5           6.9          3.1        0     -17.993484
 96   Iris-versicolor           5.0          1.7           6.7          3.0        0      -2.559132
 97   Iris-versicolor           5.1          1.6           6.0          2.7        0      -1.542130
-98    Iris-virginica           4.5          1.7           4.9          2.5        1      -0.015840
 99    Iris-virginica           4.8          1.8           6.0          3.0        0     -23.745356
 100   Iris-virginica           4.8          1.8           6.2          2.8        0     -86.377998
 101   Iris-virginica           4.9          1.8           6.1          3.0        0     -34.766906
 102   Iris-virginica           4.9          1.8           6.3          2.7        0     -59.687493
 103   Iris-virginica           4.9          2.0           5.6          2.8        0      -9.716904
-104   Iris-virginica           5.0          1.5           6.0          2.2        1      -0.156213
 105   Iris-virginica           5.0          1.9           6.3          2.5        0      -8.489224
 106   Iris-virginica           5.0          2.0           5.7          2.5        0     -13.147643
 107   Iris-virginica           5.1          1.5           6.3          2.8        0      -2.200715
@@ -1175,7 +877,6 @@ Lebih lambat dihitung pada dataset besar.</p>
 119   Iris-virginica           5.5          1.8           6.4          3.1        0     -10.907458
 120   Iris-virginica           5.5          1.8           6.5          3.0        0     -19.780154
 121   Iris-virginica           5.5          2.1           6.8          3.0        0      -9.339991
-122   Iris-virginica           5.6          1.4           6.1          2.6        1      -0.157793
 123   Iris-virginica           5.6          1.8           6.3          2.9        0     -18.710014
 124   Iris-virginica           5.6          2.1           6.4          2.8        0    -133.135232
 125   Iris-virginica           5.6          2.2           6.4          2.8        0     -80.683885
@@ -1185,7 +886,6 @@ Lebih lambat dihitung pada dataset besar.</p>
 129   Iris-virginica           5.7          2.3           6.9          3.2        0     -13.279455
 130   Iris-virginica           5.7          2.5           6.7          3.3        0     -14.765497
 131   Iris-virginica           5.8          1.6           7.2          3.0        0      -1.895011
-132   Iris-virginica           5.8          1.8           6.7          2.5        1      -0.084224
 133   Iris-virginica           5.8          2.2           6.5          3.0        0     -27.156303
 134   Iris-virginica           5.9          2.1           7.1          3.0        0     -11.911808
 135   Iris-virginica           5.9          2.3           6.8          3.2        0      -7.822182
@@ -1195,86 +895,13 @@ Lebih lambat dihitung pada dataset besar.</p>
 139   Iris-virginica           6.1          2.3           7.7          3.0        0      -0.781939
 140   Iris-virginica           6.1          2.5           7.2          3.6        0      -0.612383
 141   Iris-virginica           6.3          1.8           7.3          2.9        0      -4.748133
-142   Iris-virginica           6.4          2.0           7.9          3.8        1      -0.137417
 143   Iris-virginica           6.6          2.1           7.6          3.0        0      -4.738622
 144   Iris-virginica           6.7          2.0           7.7          2.8        0      -5.161529
-145   Iris-virginica           6.7          2.2           7.7          3.8        1      -0.129286
 146   Iris-virginica           6.9          2.3           7.7          2.6        0      -0.692992
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-</section>
-<hr class="docutils" />
-<section id="ringkasan-statistik">
-<h2>Ringkasan Statistik<a class="headerlink" href="#ringkasan-statistik" title="Link to this heading">#</a></h2>
-<div class="pst-scrollable-table-container"><table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Feature</p></th>
-<th class="head"><p>Min</p></th>
-<th class="head"><p>Max</p></th>
-<th class="head"><p>Mean</p></th>
-<th class="head"><p>Std Dev</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>SepalLengthCm</p></td>
-<td><p>4.3</p></td>
-<td><p>7.9</p></td>
-<td><p>5.84</p></td>
-<td><p>0.83</p></td>
-</tr>
-<tr class="row-odd"><td><p>SepalWidthCm</p></td>
-<td><p>2.0</p></td>
-<td><p>4.4</p></td>
-<td><p>3.05</p></td>
-<td><p>0.43</p></td>
-</tr>
-<tr class="row-even"><td><p>PetalLengthCm</p></td>
-<td><p>1.0</p></td>
-<td><p>6.9</p></td>
-<td><p>3.76</p></td>
-<td><p>1.76</p></td>
-</tr>
-<tr class="row-odd"><td><p>PetalWidthCm</p></td>
-<td><p>0.1</p></td>
-<td><p>2.5</p></td>
-<td><p>1.20</p></td>
-<td><p>0.76</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</section>
-<hr class="docutils" />
-<section id="kesimpulan">
-<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Link to this heading">#</a></h2>
-<p>Berdasarkan analisis awal terhadap dataset Iris, dapat ditarik beberapa poin penting:</p>
-<ol class="arabic simple">
-<li><p>Dataset terdiri dari 150 sampel dengan distribusi yang seimbang, masing-masing spesies
-(Iris-setosa, Iris-versicolor, Iris-virginica) memiliki 50 data. Hal ini memastikan
-tidak adanya masalah ketidakseimbangan kelas (class imbalance).</p></li>
-<li><p>Fitur numerik yang digunakan adalah Sepal Length, Sepal Width, Petal Length, dan Petal Width.<br />
-Setiap fitur memiliki rentang nilai (min–max), rata-rata, dan standar deviasi yang berbeda.</p></li>
-<li><p>Fitur Petal (panjang dan lebar) menunjukkan variasi yang lebih besar dibandingkan dengan fitur Sepal.<br />
-Hal ini terlihat dari nilai standar deviasi yang lebih tinggi pada Petal Length dan Petal Width.</p></li>
-<li><p>Fitur Sepal cenderung lebih stabil (rentang data lebih sempit dan standar deviasi lebih kecil).<br />
-Sebaliknya, fitur Petal lebih bervariasi sehingga berpotensi menjadi indikator utama dalam klasifikasi spesies.</p></li>
-<li><p>Secara keseluruhan, dataset ini sangat ideal untuk digunakan sebagai studi kasus dalam analisis data
-maupun pemodelan machine learning, karena memiliki data yang bersih, seimbang, dan jelas perbedaan antar fiturnya.</p></li>
-</ol>
-</section>
-<section id="deskripsi-diagram-distribusi-spesies-iris">
-<h2>Deskripsi Diagram Distribusi Spesies Iris<a class="headerlink" href="#deskripsi-diagram-distribusi-spesies-iris" title="Link to this heading">#</a></h2>
-<p><img alt="class.png" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAz4AAAIOCAYAAAB5xtjBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABTwSURBVHhe7d3NjxxlYsfxGqwl3ivKKeFFS7x75p4ohxyC8MHhFrUUx7EiceCcI38GciQOsSyzcImUIKHl7INl+YDEceW1ZXlDXtksC14Je3bHk6l2PVBUqnuq36t//nykUlc9Vd1jxDxmvtTLHDy4f+/45q3b1WQyqRb12WefVW+88Ub16NGjZoQxO3v2bPXJJ59Ur732WjOymPfee6966623mi0AANgfzzWvS6l/gK5/kD5//vz0h2rGqf53U/87WiV6aqIHAIB9tdIZHwAAgH2w0hkfAACAfSB8AACAeMIHAACIJ3wAAIB4W3+4weVLF5u1p65eu96sfX9fexwAAGAVOznjU0dNWbrKWDeQAAAAljWaS93q0CnR0xdEAAAAy9pJ+NSR44wOAACwLVsPn3KJW72IHwAAYBu2/nCDtvblbe31Wnd7ls8//+X09cUXX56+1oxtf+ydG1V15dPpJkS6+3ZVvXC2+b4/Pvm+f2nJObMH7/3Tf325eng4XYU4f/HH31T//Nc/bLYWnEcn9mnsn279qvqHW3/YbEGed//si+rP/+ibwfNj78OHcRA+pCvh8yx45d1K+BDr/Lmqev9CsxHuozsnP0993GxAoA/frKrXX202BhjV7/GpY6e8ih4AAGBdth4+ddSUpR037TM/AAAA67TThxt0zdsHAACwrFFd6gYAALAJwgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACIJ3wAAIB4Owufy5cuTpe2MtYdBwAAWMXozvhcvXZ9+ip+AACAddlJ+NRRUwKnaI919wEAAKzCPT4AAEC8rYdP39meVfzqiy+mS5ux3Y1BuqFzIWUM0hw+ftysPTV0Luzj2MOvv27WINPXX3210PzYavisO3pqZ394drq0GdvdGKQbOhdSxiDNmTNnmrWnhs6FfRz7wfM/aNYg0/N/8PxC8+Pgwf17xzdv3a4mk0mza3NmPbCgjqFuFG0ikticd25U1ZVPmw0IdPftqnrh+3+Pxnrl3ap6eNhsQJjz56rq/QvNRriP7pz8PPVxswGBPnyzql5/tdkYYKtnfOqQaS9lrChhJHoAAIB1Gs3DDUrozDorBAAAsKydhk/3rE69XRYAAIB1Gc0ZHwAAgE0RPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADEEz4AAEC8rYfP5UsXv1265u0DAABY1k7O+Fy9dn269AVOPV4TPwAAwLpsPXxK2HTVoVP2zToGAABgGe7xAQAA4u0kfMp9POs4s3N0dDRd2oztbgzSDZ0LKWOQ5vj4uFl7auhc2MexJ0+eNGuQqf4eX2R+jO4en0X9z3//13RpM7a7MUg3dC6kjEGaw8ePm7Wnhs6FfRz76qvfNGuQ6avffLnQ/Dh4cP/e8c1bt6vJZNLs2p72WZ/uGaB1nRFiO965UVVXPm02INDdt6vqhbPNRrhX3q2qh4fNBoQ5f66q3r/QbIT76M7Jz1MfNxsQ6MM3q+r1V5uNAUZ1j085AyR6AACAddp6+NRRU5Z23LTP/AAAAKzT1sOnDpyydM3bBwAAsKxRXeoGAACwCcIHAACIJ3wAAIB4wgcAAIgnfAAAgHjCBwAAiCd8AACAeMIHAACINyh8fvLjc4MWAACAMXLGBwAAiDcofO784u63S3e7PQ4AADBGzvgAAADxlgqf7v087u8BAADGbOkzPt2HGrjcDQAAGKuFw6d7b09ZAAAAxso9PgAAQLxB4dO+rG3eAgAAMEbO+AAAAPEGhU/fPT19CwAAwBg54wMAAMQTPgAAQDzhAwAAxBM+AABAvEHh035UtcdWAwAA+2bwGZ/27+op690FAABgjFzqBgAAxBsUPn2/s6dvAQAAGCNnfAAAgHhLhY/7ewAAgH2ycPi0I6d9eZv4AQAAxmqpMz7te3rc3wMAAIyde3wAAIB4S9/j0+YyNwAAYMwWDp9yWVsdO2WpudwNAAAYq5Xu8WkvAAAAY+UeHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACDewuEz63f2+F0+AADAWA0On/bv7Cnr7QUAAGCs1napm9/lAwAAjNXg8On+wtLuAgAAMFYebgAAAMRbKnz67vGpFwAAgDFaOHxK4LjcDQAA2BdLnfEROQAAwD5xjw8AABBv6Xt8AAAA9sXSZ3zaDzUoCwAAwBgtHD7dBxq0FwAAgDFyjw8AABBv4fDpu8StLAAAAGPkjA8AABBvbff4AAAAjJUzPgAAQLy1hI/7ewAAgDFby8MNai53AwAAxso9PgAAQDz3+AAAAPGWCp9Zl7sBAACM0VL3+BTtS9zEDwAAMFZLnfFp39fjHh8AAGDs3OMDAADEW/oenzaXuQEAAGO2cPiUy9rq2ClLzeVuAADAWK10j097AQAAGCv3+AAAAPEGh0/7sra2WeMAAABjMSh85t3HU8bEDwAAMFaDz/jMu4/HPT4AAMCYuccHAACIJ3wAAIB4Cz3cYBb39wAAAGM2KHzaDzDoW2ru8wEAAMZqoYcbzFsAAADGyj0+AABAPOEDAADEEz4AAEA84QMAAMQTPgAAQDzhAwAAxBM+AABAPOEDAADE20n4XL50cbp0lfG+fQAAAMvaevjUUXP12vXp0hc49XhN/AAAAOuy9fApYdNVgqg26xgAAIBluMcHAACIt7PwaZ/hWcV//se/T5c2Y7sbg3RD50LKGKR5/OhRs/bU0Lmwj2NffvnrZg0yffnr/11ofhw8uH/v+Oat29VkMml2bV65f6cdPt0QGhpGR0dH09czZ85MX2vGtj/2zo2quvLpdBMi3X27ql44u9l5VOx67NV/PFM9PJyuQpw3/uS4+ulfHTRbm5tHYxj7l58/qf7+Zy7uIddPLzyp/vJHx4Pnx85mw7ru46n/odr/YDVjuxuDdEPnQsoYpDk4+C56akPnwj6OPfec6CFb/T2+yPzY+oyYdyannAkaerYHAABgiJ38r4A6bMpSlNBpjwEAAKzD1sOnDpz20jZrHAAAYBUu/gQAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACDezsLn8qWLzdp36rGyAAAArMvWw+e0sLl67fr0VfwAAADrsvXwqcOmxE1bHTplvG8/AADAstzjAwAAxNv78Pntbx9OlzZjuxuDdEPnQsoYpDn6/e+btaeGzoV9HHv06JtmDTLV3+OLzI+9D59H3zyaLm3GdjcG6YbOhZQxSHN0dNSsPTV0Luzj2O8Of9esQabDx4cLzY+DB/fvHd+8dbuaTCbNru1o39NTO22bcXvnRlVd+bTZgEB3366qF842G+FeebeqHh42GxDm/Lmqev9CsxHuozsnP0993GxAoA/frKrXX202BhjVGZ/yJDfRAwAArNNowqeETokfAACAddlZ+PSd0anHygIAALAue/9wAwAAgNMIHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACCe8AEAAOIJHwAAIJ7wAQAA4gkfAAAgnvABAADiCR8AACDeqMLn8qWL3y4AAADrMrozPlevXZ++ih8AAGBdRhM+deiU6CmvAAAA6+AeHwAAIJ7wAQAA4h08uH/v+Oat29VkMmmGdqN9qVutuz3L55//cvr64osvT19rxp7BsX87GTtY5b0HJ2MvNSNbeu90rPPesf9zzPzzrfG9fcfNfO+Oxo5Pxl7y3lG/98TGv8Yu3rvKXNjVe8f0NYwZO2Hs2R3b+/ABAAA4zegeZ11eRQ8AALAuowmfEjolfgAAANZlNJe6AQAAbIqnugEAAPGEDwAAEE/4wBbMu3fNfW0wHvswV1f9c/g7h2fRtub2sp819H3m72qED+zYpp9g6C9JWI+xPG3UU09hvdY5p5b9rKHvM/9XI3wAAIB4wge2rJyB6b4W9faQszR9x3XHynrfeHesWORYSFa+57uvxWnzom9fe6zv/WV73nF97+keU5s13jXruLJ92vth33S/t/u+9+d93/ft6/usWWPtpehb7x5T69vuHtc3RqN+nPUHH3xwDGzO3/3t3zRrT9e720V7fZ6+44Z+5rzt7r6u0/bDvuvOh1nzY8hc6DumjM373Fn7itP217rjs95z2nHd/bCv5n1vz1qfpe+YMtb9rO5226x98943a32WIcc8S5zxgR2YdY1uPd79PzR9/+em77ha97hFbepzYV+tMle7x9Tr7c9rH9vWPqbv62xT+88CSWZ9b/fNuTJXy3j3mHp93uctY9n3Fe0/L98RPjAy3b9Q6+2ytHWPq806dhHdz63XV/1MSNSdK2WeDJ0rQ4+v93fnOrA53Tk3dK6Ohf9uzyZ8AGBD6h886h9Cyg8iQIZV53b9PrZP+MCIDP1LtO+49l/C9VK0x7vb9dL+jL6x7vuB4XN1lu48nOW0rzPrc7rjQ98/6zh4VmxyLrTn2zo+vzt/i/Y433dQP9zg5q3b1WQyaYYAAIBNqsNkE4HFbM74AAAA8ZzxAQCADeteeuZsz/YJHwAAIJ5L3QAAgHjCBwAAiCd8AACAeMIHAACIJ3wAYAk/+fG5/7dsyza/FkAK4QMACyrhcecXd79datsKkvL1ABhO+ADAErrx0Q4gAMbH7/EBgAW1z/jM0nf2p3t895ih++vxVT+r1j0GIJkzPgCwoHaAlGWW+tj28UVZX2T/LEM+q+wr+8srwLNC+ADAEtoRUWuHRnFaXCyyf9XPav/5TjsWIJHwAYAV1BFRQqIvfuapjy/LquZ9VvvPN+sYgHTCBwB2pERTe1nWaZ/VHRc/wLNG+ADAgoaeNTntmPb+vmNP298279jT3gvwLPBUNwBYQB0R9VmTvphon2XpO669vzbkM9rKvvLZbfM+67SvA/AsED4AsAF9cQLA7rjUDQAAiCd8AACAeMIHADbAZW4A4yJ8AACAeMIHAACIJ3wAAIB43z7OGgAAIFNV/R+KJS8AjggYYwAAAABJRU5ErkJggg==" /></p>
-<p>Diagram batang di atas menunjukkan jumlah data untuk setiap spesies bunga <strong>Iris</strong> dalam dataset. Terdapat tiga spesies yang diamati, yaitu <strong>Iris-setosa</strong>, <strong>Iris-versicolor</strong>, dan <strong>Iris-virginica</strong>.</p>
-<ul class="simple">
-<li><p><strong>Iris-setosa</strong> memiliki jumlah data sebanyak <strong>50 sampel</strong>.</p></li>
-<li><p><strong>Iris-versicolor</strong> memiliki jumlah data sebanyak <strong>50 sampel</strong>.</p></li>
-<li><p><strong>Iris-virginica</strong> juga memiliki jumlah data sebanyak <strong>50 sampel</strong>.</p></li>
-</ul>
-<p>Dari hasil ini, dapat disimpulkan bahwa distribusi data antar spesies adalah <strong>seimbang</strong>. Setiap spesies memiliki jumlah sampel yang sama, sehingga dataset Iris ini sangat ideal untuk keperluan analisis statistik maupun pemodelan machine learning, karena tidak terdapat masalah <strong>ketidakseimbangan kelas (class imbalance)</strong>.</p>
 </section>
 </section>
 
@@ -1309,22 +936,13 @@ maupun pemodelan machine learning, karena memiliki data yang bersih, seimbang, d
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Business_Understanding_iris.html"
+       href="Data_Understanding_iris.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Business Understanding</p>
+        <p class="prev-next-title">Data Understanding</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="preposesing.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Preprocessing</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -1342,18 +960,10 @@ maupun pemodelan machine learning, karena memiliki data yang bersih, seimbang, d
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#struktur-data">Struktur Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#melihat-10-baris-pertama-data">Melihat 10 baris pertama data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#identifikasi-outlier">Identifikasi Outlier</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-library">Import Library</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lof">LOF</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#abod">ABOD</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkasan-statistik">Ringkasan Statistik</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-diagram-distribusi-spesies-iris">Deskripsi Diagram Distribusi Spesies Iris</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outlier">Outlier</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lof">LOF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#abod">ABOD</a></li>
 </ul>
   </nav></div>
 
